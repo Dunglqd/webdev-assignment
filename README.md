@@ -1,6 +1,6 @@
 # webdev-assignment
 # Golden Owl Web Application
-- [[Demo video]](https://drive.google.com/drive/folders/1PEn-pywJsZgHDjLfDqDk_tOWraOmpBRr?usp=sharing)
+[[Demo video]](https://drive.google.com/drive/folders/1PEn-pywJsZgHDjLfDqDk_tOWraOmpBRr?usp=sharing).
 Ứng dụng này quản lý dữ liệu điểm thi THPT 2024 với các tính năng:
 - Tra cứu điểm thi theo số báo danh (SBD).
 - Báo cáo xếp loại thí sinh theo các mức (>=8, 8 > && >=6, 6 > && >=4, <4) bằng biểu đồ (Chart.js).
