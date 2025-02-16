@@ -33,8 +33,7 @@
    source env/bin/activate
    pip install -r requirements.txt
 3. **Cấu Hình Cơ Sở Dữ Liệu (goldenowl/settings.py):**
-   Dùng Docker hãy chuyển HOST từ localhost sang db
-
+   - Dùng Docker hãy chuyển HOST từ localhost sang db
    ```DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -100,7 +99,7 @@
 3. **Xây dựng và Chạy Docker Compose:**
    ```docker-compose down
       docker-compose up --build
-Sau khi các container khởi động, truy cập: http://localhost:8000/dashboard/
+- Sau khi các container khởi động, truy cập: http://localhost:8000/dashboard/
 
 **Lưu ý:** Khi chạy Docker, trong file settings.py đảm bảo HOST được đặt là tên service PostgreSQL (ví dụ: postgres_db).
 ## Ghi chú
