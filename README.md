@@ -10,7 +10,6 @@
 - [Yêu Cầu](#yêu-cầu)
 - [Cài Đặt và Chạy trên Localhost](#cài-đặt-và-chạy-trên-localhost)
 - [Chạy Ứng Dụng với Docker](#chạy-ứng-dụng-với-docker)
-- [Hướng Dẫn Up Code Lên GitHub từ VS Code](#hướng-dẫn-up-code-lên-github-từ-vs-code)
 - [Ghi Chú](#ghi-chú)
 
 ## Yêu Cầu
@@ -101,6 +100,9 @@
 Sau khi các container khởi động, truy cập: http://localhost:8000/dashboard/
 
 **Lưu ý:** Khi chạy Docker, trong file settings.py đảm bảo HOST được đặt là tên service PostgreSQL (ví dụ: postgres_db).
+## Ghi chú
+- Nếu bạn gặp lỗi kết nối giữa Django và PostgreSQL khi dùng Docker, kiểm tra lại biến môi trường trong docker-compose.yml và cấu hình DATABASES trong settings.py.
+- Để dừng server hoặc container: Sử dụng Ctrl + C cho local hoặc docker-compose down cho Docker.
 
 
 
