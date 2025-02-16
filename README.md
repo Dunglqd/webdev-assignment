@@ -49,6 +49,65 @@
    CREATE DATABASE goldenowl_db;
    CREATE USER goldenowl_user WITH PASSWORD '123456';
    GRANT ALL PRIVILEGES ON DATABASE goldenowl_db TO goldenowl_user;
+5. **Chạy Migrations và Import Dữ Liệu:**
+   ```
+   python manage.py makemigrations
+   python manage.py migrate
+   python manage.py import_csv
+6. **Chạy Ứng Dụng:**
+   ```python manage.py runserver
+**Truy cập ứng dụng tại: http://127.0.0.1:8000/dashboard/**
+
+## Chạy Ứng Dụng với Docker
+1. **Docker Compose File (docker-compose.yml):**
+   ```yaml
+      version: '3'
+      services:
+        postgres_db:
+          image: postgres:13
+          environment:
+            POSTGRES_DB: goldenowl_db
+            POSTGRES_USER: goldenowl_user
+            POSTGRES_PASSWORD: 123456
+          ports:
+            - "5432:5432"
+          volumes:
+            - postgres_data:/var/lib/postgresql/data
+      
+        django_app:
+          build: .
+          command: gunicorn goldenowl.wsgi:application --bind 0.0.0.0:8000
+          volumes:
+            - .:/app
+          ports:
+            - "8000:8000"
+          depends_on:
+            - postgres_db
+      
+      volumes:
+        postgres_data:
+2. **Dockerfile**
+   ```dockerfile
+   FROM python:3.9-slim
+   ENV PYTHONUNBUFFERED 1
+   WORKDIR /app
+   COPY requirements.txt /app/
+   RUN pip install -r requirements.txt
+   COPY . /app/
+   CMD ["gunicorn", "goldenowl.wsgi:application", "--bind", "0.0.0.0:8000"]
+3. **Xây dựng và Chạy Docker Compose:**
+   ```docker-compose down
+      docker-compose up --build
+Sau khi các container khởi động, truy cập: http://localhost:8000/dashboard/
+
+**Lưu ý:** Khi chạy Docker, trong file settings.py đảm bảo HOST được đặt là tên service PostgreSQL (ví dụ: postgres_db).
+
+
+
+
+
+
+   
 
 
 
