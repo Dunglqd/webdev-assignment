@@ -1,0 +1,40 @@
+version: '3'
+services:
+  web:
+    build: .
+    container_name: django_app
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      # Cài đặt biến môi trường, nếu bạn dùng chúng trong settings.py
+      - DATABASE_NAME=goldenowl_db
+      - DATABASE_USER=goldenowl_user
+      - DATABASE_PASSWORD=123456
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
+
+  db:
+    image: postgres:13
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: goldenowl_db
+      POSTGRES_USER: goldenowl_user
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U goldenowl_user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:
+
