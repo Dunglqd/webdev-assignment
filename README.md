@@ -20,8 +20,28 @@
 - Git
 
 ## Cài Đặt và Chạy trên Localhost
-
+**Giải nén file rar Dataset: diem_thi_thpt_2024.csv**
 1. **Clone Repository:**
    ```bash
    git clone https://github.com/your_username/goldenowl.git
    cd goldenowl
+2. **Tạo Virtual Environment và Cài Đặt Dependencies:**
+   ```python -m venv env
+   # Trên Windows:
+   env\Scripts\activate
+   # Trên macOS/Linux:
+   source env/bin/activate
+   pip install -r requirements.txt
+3. **Cấu Hình Cơ Sở Dữ Liệu (goldenowl/settings.py):**
+   ```DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'goldenowl_db',
+        'USER': 'goldenowl_user',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '5432',
+       }
+   }
+
+
