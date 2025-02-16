@@ -25,7 +25,8 @@
    git clone https://github.com/your_username/goldenowl.git
    cd goldenowl
 2. **Tạo Virtual Environment và Cài Đặt Dependencies:**
-   ```python -m venv env
+   ```
+   python -m venv env
    # Trên Windows:
    env\Scripts\activate
    # Trên macOS/Linux:
