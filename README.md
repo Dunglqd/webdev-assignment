@@ -55,7 +55,8 @@
    python manage.py migrate
    python manage.py import_csv
 6. **Chạy Ứng Dụng:**
-   ```python manage.py runserver
+   ```
+   python manage.py runserver
 **Truy cập ứng dụng tại: http://127.0.0.1:8000/dashboard/**
 
 ## Chạy Ứng Dụng với Docker
