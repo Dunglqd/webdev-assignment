@@ -33,6 +33,7 @@
    source env/bin/activate
    pip install -r requirements.txt
 3. **Cấu Hình Cơ Sở Dữ Liệu (goldenowl/settings.py):**
+   Dùng Docker hãy chuyển HOST từ localhost sang db
    ```DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -43,5 +44,11 @@
         'PORT': '5432',
        }
    }
+4. **Tạo Database và User trong PostgreSQL: Sử dụng psql hoặc pgAdmin:**
+   ``` sql
+   CREATE DATABASE goldenowl_db;
+   CREATE USER goldenowl_user WITH PASSWORD '123456';
+   GRANT ALL PRIVILEGES ON DATABASE goldenowl_db TO goldenowl_user;
+
 
 
