@@ -1,0 +1,41 @@
+{% extends 'exam/base.html' %}
+{% block title %}Search Scores - G-Scores{% endblock %}
+
+{% block content %}
+  <h2>Search Scores</h2>
+  <form method="post" class="row g-3">
+    {% csrf_token %}
+    <div class="col-auto">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter registration number"
+        name="sbd"
+        value="{{ request.POST.sbd|default_if_none:'' }}"
+      />
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+
+  <!-- Hiển thị kết quả tra cứu (nếu có) -->
+  {% if student %}
+    <div class="mt-3">
+      <h4>Detailed Scores for {{ student.sbd }}</h4>
+      <ul>
+        <li>Toán: {{ student.toan }}</li>
+        <li>Ngữ văn: {{ student.ngu_van }}</li>
+        <li>Ngoại ngữ: {{ student.ngoai_ngu }}</li>
+        <li>Vật lý: {{ student.vat_ly }}</li>
+        <li>Hóa học: {{ student.hoa_hoc }}</li>
+        <li>Sinh học: {{ student.sinh_hoc }}</li>
+        <li>Lịch sử: {{ student.lich_su }}</li>
+        <li>Địa lý: {{ student.dia_ly }}</li>
+        <li>GDCD: {{ student.giao_duc_cong_dan }}</li>
+        <li>Điểm TB: {{ student.average_score }}</li>
+        <li>Xếp loại: {{ student.score_level }}</li>
+      </ul>
+    </div>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'exam/base.html' %}
+{% block title %}Top Group A - G-Scores{% endblock %}
+
+{% block content %}
+  <h2>Top 10 - Group A (Toán, Lý, Hóa)</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>SBD</th>
+        <th>Toán</th>
+        <th>Vật lý</th>
+        <th>Hóa học</th>
+        <th>Tổng khối A</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for st in top_10 %}
+      <tr>
+        <td>{{ st.sbd }}</td>
+        <td>{{ st.toan }}</td>
+        <td>{{ st.vat_ly }}</td>
+        <td>{{ st.hoa_hoc }}</td>
+        <td>{{ st.group_a_score }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
